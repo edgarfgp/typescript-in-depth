@@ -11,6 +11,6 @@
         "--watch",
         "app.ts"
     ],
-    "showOutput": "silent",
+    "showOutput": "always",
     "problemMatcher" : "$tsc"
 }
