@@ -1,12 +1,8 @@
-enum Category {
-    Biography,
-    Poetry,
-    Fiction,
-    History,
-    Children
-}
+import { Category } from './enums';
+import { Book, StringGenerator, DamageLogger, Author, Librarian} from './interfaces';
+import {UniversityLibrarian} from './classes';
 
-function GetAllBooks() {
+function GetAllBooks() : Book[] {
     let books = [
         { id: 1, title: 'Ulisses', author: 'James Royce', available: true, category: Category.Biography },
         { id: 2, title: 'A Farewell to Arms', author: 'Ernest Hemingway', available: false, category: Category.Poetry },
@@ -53,7 +49,7 @@ function LogBookTitles(titles: string[]): void {
 
 }
 
-function getBookById(id: number) {
+function getBookById(id: number): Book{
     const allBooks = GetAllBooks();
     return allBooks.filter(book => book.id === id)[0];
 }
@@ -112,13 +108,17 @@ function GetTitles(bookProperty: any): Array<string> {
     return foundTitles;
 }
 
+function pPrintBook(book : Book) : void {
+    console.log(`${book.title}  by ${book.author}`)
+}
+
 
 
 /***************************************************************************************** */
 // const ficctionBooks = GetAllBooks();
 // ficctionBooks.forEach((val, idx, arr) => console.log(`${++idx} - ${val.title}`));
 
-// let Idgenerator: (chars: string, nums: number) => string;
+// let Idgenerator : StringGenerator;
 // Idgenerator = CreateCustomerId;
 // let myId = Idgenerator('Oscar', 10);
 // console.log(myId)
@@ -139,5 +139,30 @@ function GetTitles(bookProperty: any): Array<string> {
 // myBooks.forEach(title => console.log(title))
 
 
-let hermanBooks = GetTitles(false);
-hermanBooks.forEach(title => console.log(title));
+// let hermanBooks = GetTitles(false);
+// hermanBooks.forEach(title => console.log(title));
+
+// let myBook : Book = {
+//     id: 5,
+//     title: 'Pride and Perjudice',
+//     author: 'Jane Austen',
+//     available: true,
+//     category: Category.Fiction,
+//     pages : 250,
+//     markDamage : (reason: string) => console.log(`Damage: ${reason}`)
+
+   
+// }
+
+// pPrintBook(myBook);
+// myBook.markDamage('torn pages');
+
+//This is de definitions of the interface 
+// let logDammage : DamageLogger;
+// //This is the inteface implementation
+// logDammage = (damage: string) => console.log(`Damage reported: ${damage}`);
+// logDammage('coffe stains');
+
+let favouriteLibrarian : Librarian = new UniversityLibrarian();
+favouriteLibrarian.name = 'Madelin';
+favouriteLibrarian.assistCustomer('Oscar');

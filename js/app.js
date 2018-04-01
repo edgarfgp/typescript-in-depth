@@ -1,17 +1,13 @@
-var Category;
-(function (Category) {
-    Category[Category["Biography"] = 0] = "Biography";
-    Category[Category["Poetry"] = 1] = "Poetry";
-    Category[Category["Fiction"] = 2] = "Fiction";
-    Category[Category["History"] = 3] = "History";
-    Category[Category["Children"] = 4] = "Children";
-})(Category || (Category = {}));
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var enums_1 = require("./enums");
+var classes_1 = require("./classes");
 function GetAllBooks() {
     var books = [
-        { id: 1, title: 'Ulisses', author: 'James Royce', available: true, category: Category.Biography },
-        { id: 2, title: 'A Farewell to Arms', author: 'Ernest Hemingway', available: false, category: Category.Poetry },
-        { id: 3, title: 'I Know the Caged Bird Sings ', author: 'Maya Angelou', available: true, category: Category.Biography },
-        { id: 4, title: 'I Mobby Dick ', author: 'Herman Melville', available: true, category: Category.Fiction }
+        { id: 1, title: 'Ulisses', author: 'James Royce', available: true, category: enums_1.Category.Biography },
+        { id: 2, title: 'A Farewell to Arms', author: 'Ernest Hemingway', available: false, category: enums_1.Category.Poetry },
+        { id: 3, title: 'I Know the Caged Bird Sings ', author: 'Maya Angelou', available: true, category: enums_1.Category.Biography },
+        { id: 4, title: 'I Mobby Dick ', author: 'Herman Melville', available: true, category: enums_1.Category.Fiction }
     ];
     return books;
 }
@@ -30,8 +26,8 @@ function LogFirstAvailable(books) {
     console.log("Fisrt Available: " + firstAvailable);
 }
 function GetBookTitlesByCategory(categoryFilter) {
-    if (categoryFilter === void 0) { categoryFilter = Category.Fiction; }
-    console.log("Getting Books in category: " + Category[categoryFilter]);
+    if (categoryFilter === void 0) { categoryFilter = enums_1.Category.Fiction; }
+    console.log("Getting Books in category: " + enums_1.Category[categoryFilter]);
     var allBooks = GetAllBooks();
     var filteredTitles = [];
     allBooks.forEach(function (element) {
@@ -101,10 +97,13 @@ function GetTitles(bookProperty) {
     }
     return foundTitles;
 }
+function pPrintBook(book) {
+    console.log(book.title + "  by " + book.author);
+}
 /***************************************************************************************** */
 // const ficctionBooks = GetAllBooks();
 // ficctionBooks.forEach((val, idx, arr) => console.log(`${++idx} - ${val.title}`));
-// let Idgenerator: (chars: string, nums: number) => string;
+// let Idgenerator : StringGenerator;
 // Idgenerator = CreateCustomerId;
 // let myId = Idgenerator('Oscar', 10);
 // console.log(myId)
@@ -118,6 +117,25 @@ function GetTitles(bookProperty) {
 // poetryBooks.forEach(title =>  console.log(title));
 // let myBooks: Array<string> = CheckoutBooks('Throne', 1, 3, 4);
 // myBooks.forEach(title => console.log(title))
-var hermanBooks = GetTitles(false);
-hermanBooks.forEach(function (title) { return console.log(title); });
+// let hermanBooks = GetTitles(false);
+// hermanBooks.forEach(title => console.log(title));
+// let myBook : Book = {
+//     id: 5,
+//     title: 'Pride and Perjudice',
+//     author: 'Jane Austen',
+//     available: true,
+//     category: Category.Fiction,
+//     pages : 250,
+//     markDamage : (reason: string) => console.log(`Damage: ${reason}`)
+// }
+// pPrintBook(myBook);
+// myBook.markDamage('torn pages');
+//This is de definitions of the interface 
+// let logDammage : DamageLogger;
+// //This is the inteface implementation
+// logDammage = (damage: string) => console.log(`Damage reported: ${damage}`);
+// logDammage('coffe stains');
+var favouriteLibrarian = new classes_1.UniversityLibrarian();
+favouriteLibrarian.name = 'Madelin';
+favouriteLibrarian.assistCustomer('Oscar');
 //# sourceMappingURL=app.js.map
