@@ -1,6 +1,11 @@
 import { Category } from './enums';
-import { Book, StringGenerator, DamageLogger, Author, Librarian } from './interfaces';
-import { UniversityLibrarian, ReferenceItem, Encyclopedia } from './classes';
+import { Book, StringGenerator, Logger, Author, Librarian } from './interfaces';
+import { UniversityLibrarian, ReferenceItem } from './classes';
+import Encyclopedia from './encyclopedia'
+import { CalculateLateFee as CalcFee, MaxBooksAllowed } from './lib/utilityFunctions';
+
+// let fee = CalcFee(5);
+// let max = MaxBooksAllowed(12);
 
 function GetAllBooks(): Book[] {
     let books = [
@@ -158,7 +163,7 @@ function pPrintBook(book: Book): void {
 // myBook.markDamage('torn pages');
 
 //This is de definitions of the interface 
-// let logDammage : DamageLogger;
+// let logDammage : Logger;
 // //This is the inteface implementation
 // logDammage = (damage: string) => console.log(`Damage reported: ${damage}`);
 // logDammage('coffe stains');

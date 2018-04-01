@@ -12,6 +12,8 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var enums_1 = require("./enums");
 var classes_1 = require("./classes");
+// let fee = CalcFee(5);
+// let max = MaxBooksAllowed(12);
 function GetAllBooks() {
     var books = [
         { id: 1, title: 'Ulisses', author: 'James Royce', available: true, category: enums_1.Category.Biography },
@@ -141,7 +143,7 @@ function pPrintBook(book) {
 // pPrintBook(myBook);
 // myBook.markDamage('torn pages');
 //This is de definitions of the interface 
-// let logDammage : DamageLogger;
+// let logDammage : Logger;
 // //This is the inteface implementation
 // logDammage = (damage: string) => console.log(`Damage reported: ${damage}`);
 // logDammage('coffe stains');
