@@ -1,5 +1,4 @@
 "use strict";
-/// <reference path="lodash.d.ts" />
 Object.defineProperty(exports, "__esModule", { value: true });
 var enums_1 = require("./enums");
 var utilityFunctions_1 = require("./lib/utilityFunctions");

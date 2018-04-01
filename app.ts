@@ -1,6 +1,3 @@
-/// <reference path="lodash.d.ts" />
-
-
 import { Category } from './enums';
 import { Book, StringGenerator, Logger, Author, Librarian, Magazine } from './interfaces';
 import { UniversityLibrarian, ReferenceItem } from './classes';

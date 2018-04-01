@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/edgarfgp/typescript-in-depth#readme",
   "dependencies": {
+    "@types/lodash": "^4.14.106",
     "lodash": "^4.17.5"
   }
 }
