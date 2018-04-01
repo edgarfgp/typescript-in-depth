@@ -1,6 +1,6 @@
 import { Category } from './enums';
 import { Book, StringGenerator, DamageLogger, Author, Librarian } from './interfaces';
-import { UniversityLibrarian, ReferenceItem } from './classes';
+import { UniversityLibrarian, ReferenceItem, Encyclopedia } from './classes';
 
 function GetAllBooks(): Book[] {
     let books = [
@@ -167,7 +167,12 @@ function pPrintBook(book: Book): void {
 // favouriteLibrarian.name = 'Madelin';
 // favouriteLibrarian.assistCustomer('Oscar');
 
-let ref: ReferenceItem = new ReferenceItem('Facts and Figures', 2016);
-ref.publisher = 'Ramdon Data Publishing'
-ref.printItem();
-console.log(ref.publisher)
+// let ref: ReferenceItem = new ReferenceItem('Facts and Figures', 2016);
+// ref.publisher = 'Ramdon Data Publishing'
+// ref.printItem();
+// console.log(ref.publisher)
+
+let ref = new Encyclopedia('World Encyclopedia',2018, 10);
+//ref.printItem();
+ref.printCitation();
+

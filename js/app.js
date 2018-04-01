@@ -138,8 +138,11 @@ function pPrintBook(book) {
 // let favouriteLibrarian : Librarian = new UniversityLibrarian();
 // favouriteLibrarian.name = 'Madelin';
 // favouriteLibrarian.assistCustomer('Oscar');
-var ref = new classes_1.ReferenceItem('Facts and Figures', 2016);
-ref.publisher = 'Ramdon Data Publishing';
-ref.printItem();
-console.log(ref.publisher);
+// let ref: ReferenceItem = new ReferenceItem('Facts and Figures', 2016);
+// ref.publisher = 'Ramdon Data Publishing'
+// ref.printItem();
+// console.log(ref.publisher)
+var ref = new classes_1.Encyclopedia('World Encyclopedia', 2018, 10);
+//ref.printItem();
+ref.printCitation();
 //# sourceMappingURL=app.js.map
