@@ -172,7 +172,24 @@ function pPrintBook(book: Book): void {
 // ref.printItem();
 // console.log(ref.publisher)
 
-let ref = new Encyclopedia('World Encyclopedia',2018, 10);
-//ref.printItem();
-ref.printCitation();
+// let ref = new Encyclopedia('World Encyclopedia',2018, 10);
+// //ref.printItem();
+// ref.printCitation();
+
+let newsPaper = class extends ReferenceItem {
+    printCitation(): void {
+        console.log(`NewsPaper: ${this.title}`);
+    }
+}
+
+let myPaper = new newsPaper('The Gazette', 1986);
+myPaper.printCitation();
+
+
+class Novel extends class { title: string } {
+    mainCharecater: string;
+}
+
+let favouriteNovel = new Novel();
+favouriteNovel.mainCharecater = 'Garcia Marquez';
 
