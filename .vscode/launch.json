@@ -13,7 +13,7 @@
         {
             "type": "node",
             "request": "launch",
-            "stopOnEntry": true,
+            "stopOnEntry": false,
             "name": "DEBUG",
             "runtimeExecutable": "node",
             "runtimeArgs": [

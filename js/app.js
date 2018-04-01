@@ -135,7 +135,11 @@ function pPrintBook(book) {
 // //This is the inteface implementation
 // logDammage = (damage: string) => console.log(`Damage reported: ${damage}`);
 // logDammage('coffe stains');
-var favouriteLibrarian = new classes_1.UniversityLibrarian();
-favouriteLibrarian.name = 'Madelin';
-favouriteLibrarian.assistCustomer('Oscar');
+// let favouriteLibrarian : Librarian = new UniversityLibrarian();
+// favouriteLibrarian.name = 'Madelin';
+// favouriteLibrarian.assistCustomer('Oscar');
+var ref = new classes_1.ReferenceItem('Facts and Figures', 2016);
+ref.publisher = 'Ramdon Data Publishing';
+ref.printItem();
+console.log(ref.publisher);
 //# sourceMappingURL=app.js.map

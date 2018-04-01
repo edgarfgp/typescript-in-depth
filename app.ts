@@ -1,8 +1,8 @@
 import { Category } from './enums';
-import { Book, StringGenerator, DamageLogger, Author, Librarian} from './interfaces';
-import {UniversityLibrarian} from './classes';
+import { Book, StringGenerator, DamageLogger, Author, Librarian } from './interfaces';
+import { UniversityLibrarian, ReferenceItem } from './classes';
 
-function GetAllBooks() : Book[] {
+function GetAllBooks(): Book[] {
     let books = [
         { id: 1, title: 'Ulisses', author: 'James Royce', available: true, category: Category.Biography },
         { id: 2, title: 'A Farewell to Arms', author: 'Ernest Hemingway', available: false, category: Category.Poetry },
@@ -49,7 +49,7 @@ function LogBookTitles(titles: string[]): void {
 
 }
 
-function getBookById(id: number): Book{
+function getBookById(id: number): Book {
     const allBooks = GetAllBooks();
     return allBooks.filter(book => book.id === id)[0];
 }
@@ -108,7 +108,7 @@ function GetTitles(bookProperty: any): Array<string> {
     return foundTitles;
 }
 
-function pPrintBook(book : Book) : void {
+function pPrintBook(book: Book): void {
     console.log(`${book.title}  by ${book.author}`)
 }
 
@@ -151,7 +151,7 @@ function pPrintBook(book : Book) : void {
 //     pages : 250,
 //     markDamage : (reason: string) => console.log(`Damage: ${reason}`)
 
-   
+
 // }
 
 // pPrintBook(myBook);
@@ -163,6 +163,11 @@ function pPrintBook(book : Book) : void {
 // logDammage = (damage: string) => console.log(`Damage reported: ${damage}`);
 // logDammage('coffe stains');
 
-let favouriteLibrarian : Librarian = new UniversityLibrarian();
-favouriteLibrarian.name = 'Madelin';
-favouriteLibrarian.assistCustomer('Oscar');
+// let favouriteLibrarian : Librarian = new UniversityLibrarian();
+// favouriteLibrarian.name = 'Madelin';
+// favouriteLibrarian.assistCustomer('Oscar');
+
+let ref: ReferenceItem = new ReferenceItem('Facts and Figures', 2016);
+ref.publisher = 'Ramdon Data Publishing'
+ref.printItem();
+console.log(ref.publisher)
