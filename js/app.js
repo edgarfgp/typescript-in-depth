@@ -1,17 +1,7 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
 var enums_1 = require("./enums");
-var classes_1 = require("./classes");
+var utilityFunctions_1 = require("./lib/utilityFunctions");
 // let fee = CalcFee(5);
 // let max = MaxBooksAllowed(12);
 function GetAllBooks() {
@@ -21,7 +11,9 @@ function GetAllBooks() {
         { id: 3, title: 'I Know the Caged Bird Sings ', author: 'Maya Angelou', available: true, category: enums_1.Category.Biography },
         { id: 4, title: 'I Mobby Dick ', author: 'Herman Melville', available: true, category: enums_1.Category.Fiction }
     ];
-    return books;
+    var purgedBooks = utilityFunctions_1.Purge(books);
+    purgedBooks.forEach(function (book) { return console.log(book); });
+    return purgedBooks;
 }
 function LogFirstAvailable(books) {
     if (books === void 0) { books = GetAllBooks(); }
@@ -157,29 +149,19 @@ function pPrintBook(book) {
 // let ref = new Encyclopedia('World Encyclopedia',2018, 10);
 // //ref.printItem();
 // ref.printCitation();
-var newsPaper = /** @class */ (function (_super) {
-    __extends(class_1, _super);
-    function class_1() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    class_1.prototype.printCitation = function () {
-        console.log("NewsPaper: " + this.title);
-    };
-    return class_1;
-}(classes_1.ReferenceItem));
-var myPaper = new newsPaper('The Gazette', 1986);
-myPaper.printCitation();
-var Novel = /** @class */ (function (_super) {
-    __extends(Novel, _super);
-    function Novel() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    return Novel;
-}(/** @class */ (function () {
-    function class_2() {
-    }
-    return class_2;
-}())));
-var favouriteNovel = new Novel();
-favouriteNovel.mainCharecater = 'Garcia Marquez';
+// let newsPaper = class extends ReferenceItem {
+//     printCitation(): void {
+//         console.log(`NewsPaper: ${this.title}`);
+//     }
+// }
+// let myPaper = new newsPaper('The Gazette', 1986);
+// myPaper.printCitation();
+// class Novel extends class { title: string } {
+//     mainCharecater: string;
+// }
+// let favouriteNovel = new Novel();
+// favouriteNovel.mainCharecater = 'Garcia Marquez';
+GetAllBooks();
+var purgedNumbers = utilityFunctions_1.Purge([1, 2, 3, 4, 5, 6]);
+purgedNumbers.forEach(function (nums) { return console.log(nums); });
 //# sourceMappingURL=app.js.map

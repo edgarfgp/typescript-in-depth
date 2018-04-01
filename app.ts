@@ -2,19 +2,23 @@ import { Category } from './enums';
 import { Book, StringGenerator, Logger, Author, Librarian } from './interfaces';
 import { UniversityLibrarian, ReferenceItem } from './classes';
 import Encyclopedia from './encyclopedia'
-import { CalculateLateFee as CalcFee, MaxBooksAllowed } from './lib/utilityFunctions';
+import { CalculateLateFee as CalcFee, MaxBooksAllowed, Purge } from './lib/utilityFunctions';
 
 // let fee = CalcFee(5);
 // let max = MaxBooksAllowed(12);
 
-function GetAllBooks(): Book[] {
-    let books = [
+function GetAllBooks(): Array<Book> {
+    let books:  Array<Book> = [
         { id: 1, title: 'Ulisses', author: 'James Royce', available: true, category: Category.Biography },
         { id: 2, title: 'A Farewell to Arms', author: 'Ernest Hemingway', available: false, category: Category.Poetry },
         { id: 3, title: 'I Know the Caged Bird Sings ', author: 'Maya Angelou', available: true, category: Category.Biography },
         { id: 4, title: 'I Mobby Dick ', author: 'Herman Melville', available: true, category: Category.Fiction }
     ];
-    return books;
+
+    let purgedBooks: Array<Book> = Purge<Book>(books);
+    purgedBooks.forEach(book => console.log(book));
+
+    return purgedBooks;
 }
 
 function LogFirstAvailable(books: any[] = GetAllBooks()): void {
@@ -120,6 +124,8 @@ function pPrintBook(book: Book): void {
 
 
 /***************************************************************************************** */
+
+
 // const ficctionBooks = GetAllBooks();
 // ficctionBooks.forEach((val, idx, arr) => console.log(`${++idx} - ${val.title}`));
 
@@ -181,20 +187,26 @@ function pPrintBook(book: Book): void {
 // //ref.printItem();
 // ref.printCitation();
 
-let newsPaper = class extends ReferenceItem {
-    printCitation(): void {
-        console.log(`NewsPaper: ${this.title}`);
-    }
-}
+// let newsPaper = class extends ReferenceItem {
+//     printCitation(): void {
+//         console.log(`NewsPaper: ${this.title}`);
+//     }
+// }
 
-let myPaper = new newsPaper('The Gazette', 1986);
-myPaper.printCitation();
+// let myPaper = new newsPaper('The Gazette', 1986);
+// myPaper.printCitation();
 
 
-class Novel extends class { title: string } {
-    mainCharecater: string;
-}
+// class Novel extends class { title: string } {
+//     mainCharecater: string;
+// }
 
-let favouriteNovel = new Novel();
-favouriteNovel.mainCharecater = 'Garcia Marquez';
+// let favouriteNovel = new Novel();
+// favouriteNovel.mainCharecater = 'Garcia Marquez';
 
+
+GetAllBooks();
+
+let purgedNumbers: Array<number> = Purge<number>([1,2,3,4,5,6]);
+
+purgedNumbers.forEach(nums => console.log(nums));

@@ -10,6 +10,10 @@ export function MaxBooksAllowed(age: number): number {
     }
 }
 
+export function Purge<T>(inventory: Array<T>): Array<T> {
+    return inventory;
+}
+
 
 function privateFunction() {
     console.log('this is private');

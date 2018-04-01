@@ -13,6 +13,10 @@ function MaxBooksAllowed(age) {
     }
 }
 exports.MaxBooksAllowed = MaxBooksAllowed;
+function Purge(inventory) {
+    return inventory;
+}
+exports.Purge = Purge;
 function privateFunction() {
     console.log('this is private');
 }
