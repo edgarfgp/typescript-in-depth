@@ -187,4 +187,3 @@ console.log(firstMagazine);
 magazineShelf.printTitles();
 var softwareBook = magazineShelf.find('Programming Language Montly');
 console.log(softwareBook.title + "-- " + softwareBook.publisher);
-//# sourceMappingURL=app.js.map

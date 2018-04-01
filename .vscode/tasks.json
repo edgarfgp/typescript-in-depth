@@ -4,14 +4,7 @@
     "version": "0.1.0",
     "command": "tsc",
     "isShellCommand": true,
-    "args": [
-        "--target", "ES5",
-        "--outDir", "js",
-        "--module", "commonjs",
-        "--sourceMap",
-        "--watch",
-        "app.ts"
-    ],
+    "args": [],
     "showOutput": "always",
-    "problemMatcher" : "$tsc"
+    "problemMatcher": "$tsc"
 }

@@ -19,4 +19,3 @@ var Shelf = /** @class */ (function () {
     return Shelf;
 }());
 exports.default = Shelf;
-//# sourceMappingURL=shelf.js.map
