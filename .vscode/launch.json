@@ -14,7 +14,7 @@
             "type": "node",
             "request": "launch",
             "stopOnEntry": false,
-            "name": "DEBUG",
+            "name": "DEPTH",
             "runtimeExecutable": "node",
             "runtimeArgs": [
                 "--nolazy"
