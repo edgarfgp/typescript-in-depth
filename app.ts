@@ -1,14 +1,15 @@
 import { Category } from './enums';
-import { Book, StringGenerator, Logger, Author, Librarian } from './interfaces';
+import { Book, StringGenerator, Logger, Author, Librarian, Magazine } from './interfaces';
 import { UniversityLibrarian, ReferenceItem } from './classes';
 import Encyclopedia from './encyclopedia'
 import { CalculateLateFee as CalcFee, MaxBooksAllowed, Purge } from './lib/utilityFunctions';
+import Shelf from './shelf'
 
 // let fee = CalcFee(5);
 // let max = MaxBooksAllowed(12);
 
 function GetAllBooks(): Array<Book> {
-    let books:  Array<Book> = [
+    let books: Array<Book> = [
         { id: 1, title: 'Ulisses', author: 'James Royce', available: true, category: Category.Biography },
         { id: 2, title: 'A Farewell to Arms', author: 'Ernest Hemingway', available: false, category: Category.Poetry },
         { id: 3, title: 'I Know the Caged Bird Sings ', author: 'Maya Angelou', available: true, category: Category.Biography },
@@ -205,8 +206,40 @@ function pPrintBook(book: Book): void {
 // favouriteNovel.mainCharecater = 'Garcia Marquez';
 
 
-GetAllBooks();
+// GetAllBooks();
 
-let purgedNumbers: Array<number> = Purge<number>([1,2,3,4,5,6]);
+// let purgedNumbers: Array<number> = Purge<number>([1, 2, 3, 4, 5, 6]);
 
-purgedNumbers.forEach(nums => console.log(nums));
+// purgedNumbers.forEach(nums => console.log(nums));
+let inventory: Array<Book> = [
+    { id: 1, title: 'Ulisses', author: 'James Royce', available: true, category: Category.Biography },
+    { id: 2, title: 'A Farewell to Arms', author: 'Ernest Hemingway', available: false, category: Category.Poetry },
+    { id: 3, title: 'I Know the Caged Bird Sings ', author: 'Maya Angelou', available: true, category: Category.Biography },
+    { id: 4, title: 'I Mobby Dicks', author: 'Herman Melville', available: true, category: Category.Fiction }
+];
+
+
+let bookShelf: Shelf<Book> = new Shelf<Book>();
+inventory.forEach(book => bookShelf.add(book))
+let firstBook: Book = bookShelf.getFirst();
+
+console.log(firstBook);
+
+
+let magazines: Array<Magazine> = [
+    { title: 'Programming Language Montly', publisher: 'Cod Mags' },
+    { title: 'Literary Fiction Quarterly', publisher: 'College Press' },
+    { title: 'Five Points', publisher: 'GSU' }
+];
+
+let magazineShelf: Shelf<Magazine> = new Shelf<Magazine>();
+magazines.forEach(magazine => magazineShelf.add(magazine));
+
+let firstMagazine : Magazine = magazineShelf.getFirst();
+
+console.log(firstMagazine);
+
+magazineShelf.printTitles();
+
+let softwareBook = magazineShelf.find('Programming Language Montly');
+console.log(`${softwareBook.title}-- ${softwareBook.publisher}`);

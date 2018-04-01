@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var enums_1 = require("./enums");
 var utilityFunctions_1 = require("./lib/utilityFunctions");
+var shelf_1 = require("./shelf");
 // let fee = CalcFee(5);
 // let max = MaxBooksAllowed(12);
 function GetAllBooks() {
@@ -161,7 +162,29 @@ function pPrintBook(book) {
 // }
 // let favouriteNovel = new Novel();
 // favouriteNovel.mainCharecater = 'Garcia Marquez';
-GetAllBooks();
-var purgedNumbers = utilityFunctions_1.Purge([1, 2, 3, 4, 5, 6]);
-purgedNumbers.forEach(function (nums) { return console.log(nums); });
+// GetAllBooks();
+// let purgedNumbers: Array<number> = Purge<number>([1, 2, 3, 4, 5, 6]);
+// purgedNumbers.forEach(nums => console.log(nums));
+var inventory = [
+    { id: 1, title: 'Ulisses', author: 'James Royce', available: true, category: enums_1.Category.Biography },
+    { id: 2, title: 'A Farewell to Arms', author: 'Ernest Hemingway', available: false, category: enums_1.Category.Poetry },
+    { id: 3, title: 'I Know the Caged Bird Sings ', author: 'Maya Angelou', available: true, category: enums_1.Category.Biography },
+    { id: 4, title: 'I Mobby Dicks', author: 'Herman Melville', available: true, category: enums_1.Category.Fiction }
+];
+var bookShelf = new shelf_1.default();
+inventory.forEach(function (book) { return bookShelf.add(book); });
+var firstBook = bookShelf.getFirst();
+console.log(firstBook);
+var magazines = [
+    { title: 'Programming Language Montly', publisher: 'Cod Mags' },
+    { title: 'Literary Fiction Quarterly', publisher: 'College Press' },
+    { title: 'Five Points', publisher: 'GSU' }
+];
+var magazineShelf = new shelf_1.default();
+magazines.forEach(function (magazine) { return magazineShelf.add(magazine); });
+var firstMagazine = magazineShelf.getFirst();
+console.log(firstMagazine);
+magazineShelf.printTitles();
+var softwareBook = magazineShelf.find('Programming Language Montly');
+console.log(softwareBook.title + "-- " + softwareBook.publisher);
 //# sourceMappingURL=app.js.map
