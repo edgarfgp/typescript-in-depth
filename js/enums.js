@@ -8,3 +8,4 @@ var Category;
     Category[Category["History"] = 3] = "History";
     Category[Category["Children"] = 4] = "Children";
 })(Category = exports.Category || (exports.Category = {}));
+//# sourceMappingURL=enums.js.map

@@ -20,3 +20,4 @@ exports.Purge = Purge;
 function privateFunction() {
     console.log('this is private');
 }
+//# sourceMappingURL=utilityFunctions.js.map

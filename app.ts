@@ -1,12 +1,19 @@
+/// <reference path="lodash.d.ts" />
+
+
 import { Category } from './enums';
 import { Book, StringGenerator, Logger, Author, Librarian, Magazine } from './interfaces';
 import { UniversityLibrarian, ReferenceItem } from './classes';
 import Encyclopedia from './encyclopedia'
 import { CalculateLateFee as CalcFee, MaxBooksAllowed, Purge } from './lib/utilityFunctions';
 import Shelf from './shelf'
+import * as _ from "lodash";
 
 // let fee = CalcFee(5);
 // let max = MaxBooksAllowed(12);
+
+let snakeCaseTitle = _.snakeCase("From London to the Sky");
+console.log(snakeCaseTitle);
 
 function GetAllBooks(): Array<Book> {
     let books: Array<Book> = [

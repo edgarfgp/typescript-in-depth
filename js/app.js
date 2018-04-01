@@ -1,10 +1,14 @@
 "use strict";
+/// <reference path="lodash.d.ts" />
 Object.defineProperty(exports, "__esModule", { value: true });
 var enums_1 = require("./enums");
 var utilityFunctions_1 = require("./lib/utilityFunctions");
 var shelf_1 = require("./shelf");
+var _ = require("lodash");
 // let fee = CalcFee(5);
 // let max = MaxBooksAllowed(12);
+var snakeCaseTitle = _.snakeCase("From London to the Sky");
+console.log(snakeCaseTitle);
 function GetAllBooks() {
     var books = [
         { id: 1, title: 'Ulisses', author: 'James Royce', available: true, category: enums_1.Category.Biography },
@@ -187,3 +191,4 @@ console.log(firstMagazine);
 magazineShelf.printTitles();
 var softwareBook = magazineShelf.find('Programming Language Montly');
 console.log(softwareBook.title + "-- " + softwareBook.publisher);
+//# sourceMappingURL=app.js.map

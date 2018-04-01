@@ -38,3 +38,4 @@ var Encyclopedia = /** @class */ (function (_super) {
     return Encyclopedia;
 }(classes_1.ReferenceItem));
 exports.default = Encyclopedia;
+//# sourceMappingURL=encyclopedia.js.map
